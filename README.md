@@ -1,6 +1,6 @@
 # React Bitcoin App
 
-![alt text](https://raw.githubusercontent.com/alexMercer94/react-next-bitcoin-app/master/bitcoin.png)
+![alt text](https://raw.githubusercontent.com/alexMercer94/react-next-bitcoin-app/master/Bitcoin.JPG)
 
 ## Node Modules
 
