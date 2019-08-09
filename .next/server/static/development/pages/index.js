@@ -93,6 +93,104 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/Event.js":
+/*!*****************************!*\
+  !*** ./components/Event.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Courses\\React - Hooks Redux Context\\Proyects\\12-bitcoin-app\\components\\Event.js";
+
+
+const Event = props => {
+  const {
+    name,
+    url,
+    description
+  } = props.info;
+  let title = name.text;
+  if (title.length > 100) title = title.substr(0, 100) + '...';
+  let desc = description.text;
+  if (desc) desc = desc.substr(0, 250) + '...';
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: url,
+    target: "_blank",
+    className: "list-group-item active text-light mb-1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "mb-3",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: undefined
+  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "mb-1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: undefined
+  }, desc));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Event);
+
+/***/ }),
+
+/***/ "./components/Events.js":
+/*!******************************!*\
+  !*** ./components/Events.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Event__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Event */ "./components/Event.js");
+
+var _jsxFileName = "C:\\Courses\\React - Hooks Redux Context\\Proyects\\12-bitcoin-app\\components\\Events.js";
+
+
+
+const Events = props => {
+  const eventosId = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_0___default()(props.eventos);
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "list-group",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: undefined
+  }, eventosId.map(key => react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Event__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    key: key,
+    info: props.eventos[key],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Events);
+
+/***/ }),
+
 /***/ "./components/Master.js":
 /*!******************************!*\
   !*** ./components/Master.js ***!
@@ -302,14 +400,21 @@ const News = props => {
       lineNumber: 5
     },
     __self: undefined
-  }, props.noticias.map(noticia => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_New__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, props.noticias ? props.noticias.map(noticia => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_New__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    key: noticia.publishedAt,
     noticia: noticia,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: undefined
-  })));
+  })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  }, "Error"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (News);
@@ -569,6 +674,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ "core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/keys.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core-js/library/fn/object/keys");
 
 /***/ }),
 
@@ -1208,7 +1324,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Price__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Price */ "./components/Price.js");
 /* harmony import */ var _components_News__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/News */ "./components/News.js");
+/* harmony import */ var _components_Events__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Events */ "./components/Events.js");
 var _jsxFileName = "C:\\Courses\\React - Hooks Redux Context\\Proyects\\12-bitcoin-app\\pages\\index.js";
+
 
 
 
@@ -1218,83 +1336,100 @@ var _jsxFileName = "C:\\Courses\\React - Hooks Redux Context\\Proyects\\12-bitco
 const Index = props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Master__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 8
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "row",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 9
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "col-12",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9
+    lineNumber: 10
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 11
   },
   __self: undefined
 }, "Precio del Bitcoin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Price__WEBPACK_IMPORTED_MODULE_3__["default"], {
   precio: props.bitcoinPrice,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 12
   },
   __self: undefined
 })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "col-md-8",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 13
+    lineNumber: 14
   },
   __self: undefined
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  className: "my-4",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 14
+    lineNumber: 15
   },
   __self: undefined
 }, "Noticias sobre Bitcoin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_News__WEBPACK_IMPORTED_MODULE_4__["default"], {
   noticias: props.noticias,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 15
+    lineNumber: 16
   },
   __self: undefined
 })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "col-md-4",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 17
-  },
-  __self: undefined
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-  __source: {
-    fileName: _jsxFileName,
     lineNumber: 18
   },
   __self: undefined
-}, "Pr\xF3ximos eventos Bitcoin"))));
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  className: "my-4",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 19
+  },
+  __self: undefined
+}, "Pr\xF3ximos eventos Bitcoin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Events__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  eventos: props.eventos,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 20
+  },
+  __self: undefined
+}))));
 /**
  * Fetch API using server side rendering
  */
 
 
 Index.getInitialProps = async () => {
-  const price = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://api.coinmarketcap.com/v2/ticker/1/');
-  const news = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://newsapi.org/v2/everything?q=bitcoin&from=2019-07-07&sortBy=publishedAt&apiKey=1227179dcc51439ab68790381a9bca3b&language=es');
+  const today = new Date();
+  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); // Info Bitcoin API
+
+  const price = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://api.coinmarketcap.com/v2/ticker/1/'); // News about Bitcoin API
+
+  const news = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()(`https://newsapi.org/v2/everything?q=bitcoin&from=${date}&sortBy=publishedAt&apiKey=6f53d49d565d4b588c0b88486730652f`); // Events about Bitcoin API
+
+  const events = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://www.eventbriteapi.com/v3/events/search/?q=Bitcoin&sort_by=date&location.address=Mexico&token=EKM3ASZWQNIMGRZHDLNB');
   const responsePrice = await price.json();
   const responseNews = await news.json();
+  const responseEvents = await events.json();
   return {
     bitcoinPrice: responsePrice.data.quotes.USD,
-    noticias: responseNews.articles
+    noticias: responseNews.articles,
+    eventos: responseEvents.events
   };
 };
 
@@ -1355,6 +1490,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/keys":
+/*!*************************************************!*\
+  !*** external "core-js/library/fn/object/keys" ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/keys");
 
 /***/ }),
 
